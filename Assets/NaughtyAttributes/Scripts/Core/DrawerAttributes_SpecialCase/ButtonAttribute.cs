@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace NaughtyAttributes
 {
@@ -19,6 +20,7 @@ namespace NaughtyAttributes
 	}
 
 	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
+	[MeansImplicitUse]
 	public class ButtonAttribute : SpecialCaseDrawerAttribute
 	{
 		public string Text { get; private set; }
