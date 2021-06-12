@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class ChainController : MonoBehaviour
 {
     public int AngleLimit = 30;
