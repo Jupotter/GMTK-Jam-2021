@@ -15,13 +15,21 @@ public class ChainController : MonoBehaviour
 
     public float LinkSize;
 
-    private List<HingeJoint2D> _chainLinks = new List<HingeJoint2D>();
+    private readonly List<HingeJoint2D> _chainLinks = new List<HingeJoint2D>();
 
     // Start is called before the first frame update
     void Start()
     {
         Setup();
         UpdateConfig();
+    }
+
+    public void SetGravity(float gravity)
+    {
+        foreach (var chainLink in _chainLinks)
+        {
+            chainLink.GetComponent<Rigidbody2D>().gravityScale = gravity;
+        }
     }
 
     [Button]

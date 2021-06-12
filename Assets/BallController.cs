@@ -4,15 +4,17 @@ using UnityEngine.Assertions;
 
 public class BallController : MonoBehaviour
 {
-    public float MoveForce = 2f;
+    public float InactiveGravity = 5f;
+    public float InactiveDrag = 5f;
+    public float MoveForce       = 2f;
 
     public bool InitialUp;
 
     public Rigidbody2D Ball1;
     public Rigidbody2D Ball2;
-    public GameObject  Chain;
 
-    private Rigidbody2D[] _chainLinks;
+    private ChainController _chain;
+    
     private Rigidbody2D   _controlled;
     private Rigidbody2D   _fixed;
 
@@ -25,7 +27,7 @@ public class BallController : MonoBehaviour
         Assert.IsNotNull(Ball1);
         Assert.IsNotNull(Ball2);
 
-        _chainLinks = Chain.GetComponentsInChildren<Rigidbody2D>();
+        _chain = GetComponentInChildren<ChainController>();
         _controlled = Ball2;
         _fixed      = Ball1;
 
@@ -66,14 +68,13 @@ public class BallController : MonoBehaviour
         _controlled = _fixed;
         _fixed = temp;
 
-        _fixed.constraints = RigidbodyConstraints2D.FreezeAll;
-        _controlled.constraints  = RigidbodyConstraints2D.None;
-        _controlled.gravityScale = _gravity;
+        //_fixed.constraints = RigidbodyConstraints2D.FreezePositionX;
+        _fixed.gravityScale      *= InactiveGravity;
+        _fixed.drag              =  InactiveDrag;
+        _controlled.gravityScale =  _gravity;
+        _controlled.drag         =  0;
 
-        foreach (var link in _chainLinks)
-        {
-            link.gravityScale = _gravity;
-        }
+        _chain.SetGravity(_gravity);
     }
 
     private void FixedUpdate()
