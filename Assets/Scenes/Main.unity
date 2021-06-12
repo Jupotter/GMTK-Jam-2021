@@ -155,10 +155,10 @@ RectTransform:
   m_Father: {fileID: 960920113}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -35.47}
+  m_SizeDelta: {x: 370, y: 40.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &391647996
 MonoBehaviour:
@@ -292,9 +292,9 @@ RectTransform:
   m_Father: {fileID: 1763024355}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 95, y: -25}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &719586066
@@ -340,7 +340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 719586067}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565075459}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: RetryLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &719586067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,9 +491,9 @@ RectTransform:
   m_Father: {fileID: 1763024355}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -25}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850121907
@@ -527,7 +539,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 850121908}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565075459}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &850121908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &960920113
 RectTransform:
   m_ObjectHideFlags: 0
@@ -605,7 +629,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 0}
+  m_SizeDelta: {x: 400, y: 130.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960920114
 MonoBehaviour:
@@ -1039,6 +1063,13 @@ MonoBehaviour:
     scenePath: Assets/Scenes/Level 0.unity
   - sceneAsset: {fileID: 102900000, guid: 7aa9b70040f5d1b47a555cdcf6776598, type: 3}
     scenePath: Assets/Scenes/Level 1.unity
+  - sceneAsset: {fileID: 102900000, guid: df338ace8ce352b499242fca896ad1cd, type: 3}
+    scenePath: Assets/Scenes/Level 2.unity
+  - sceneAsset: {fileID: 102900000, guid: a4424d4780fa8e6458bf45e3bf83758d, type: 3}
+    scenePath: Assets/Scenes/Level 3.unity
+  - sceneAsset: {fileID: 102900000, guid: d3073d072466b1e4481199c1a0c28102, type: 3}
+    scenePath: Assets/Scenes/Level 4.unity
+  LevelCompleteScreenPanel: {fileID: 960920112}
 --- !u!4 &1565075460
 Transform:
   m_ObjectHideFlags: 0
@@ -1123,14 +1154,14 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1935935880}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 2
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 385087637
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1718958515
@@ -1186,10 +1217,10 @@ RectTransform:
   m_Father: {fileID: 960920113}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -90.94}
+  m_SizeDelta: {x: 370, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763024356
 MonoBehaviour:
@@ -1272,7 +1303,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1296,7 +1327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935935878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.3084998, z: -10}
+  m_LocalPosition: {x: 0, y: 0.0715003, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

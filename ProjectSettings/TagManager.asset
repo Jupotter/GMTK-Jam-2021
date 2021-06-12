@@ -15,9 +15,9 @@ TagManager:
   - 
   - PostProcessing
   - 
-  - BallAndChain
-  - 
-  - 
+  - Ball
+  - Chain
+  - Goal
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 385087637
     locked: 0
