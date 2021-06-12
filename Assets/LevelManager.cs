@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using NaughtyAttributes;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,22 +9,48 @@ public class LevelManager : MonoBehaviour
 {
     public List<SceneReference> LevelsInOrder;
 
-    [ShowNonSerializedField] private bool _singleSceneMode;
-    [ShowNonSerializedField] private int  _currentLevel;
+    public GameObject LevelCompleteScreenPanel;
 
-    // Start is called before the first frame update
-    void Start()
+    [ShowNonSerializedField] private int _currentLevel;
+
+    [ShowNonSerializedField] private bool _singleSceneMode;
+
+
+    [UsedImplicitly]
+    public void RetryLevel()
     {
+        LevelCompleteScreenPanel.SetActive(false);
+        var unload = UnloadCurrentLevel();
+        unload.completed += op => LoadCurrentLevel();
+    }
+
+    [UsedImplicitly]
+    public void LoadNextLevel()
+    {
+        LevelCompleteScreenPanel.SetActive(false);
+        var unload = UnloadCurrentLevel();
+        unload.completed += LoadNextLevel;
+    }
+
+    private void Start()
+    {
+        LevelCompleteScreenPanel.SetActive(false);
+
         _singleSceneMode = SceneManager.sceneCount > 1;
 
         if (!_singleSceneMode)
+        {
             LoadCurrentLevel();
+        }
         else
+        {
             LoadOperationOnCompleted(null);
+        }
     }
 
     private void LoadCurrentLevel()
     {
+        Time.timeScale = 1;
         var level         = LevelsInOrder[_currentLevel];
         var loadOperation = SceneManager.LoadSceneAsync(level.ScenePath, LoadSceneMode.Additive);
 
@@ -39,14 +65,21 @@ public class LevelManager : MonoBehaviour
         goal.OnGoalReached += GoalOnOnGoalReached;
     }
 
+
     private void GoalOnOnGoalReached(object sender, EventArgs e)
     {
-        var level  = LevelsInOrder[_currentLevel];
-        var unload = SceneManager.UnloadSceneAsync(level.ScenePath);
-        unload.completed += UnloadOnCompleted;
+        Time.timeScale = 0;
+        LevelCompleteScreenPanel.SetActive(true);
     }
 
-    private void UnloadOnCompleted(AsyncOperation obj)
+    private AsyncOperation UnloadCurrentLevel()
+    {
+        var level = LevelsInOrder[_currentLevel];
+        return SceneManager.UnloadSceneAsync(level.ScenePath);
+    }
+
+
+    private void LoadNextLevel(AsyncOperation obj)
     {
         if (_singleSceneMode)
         {
@@ -56,7 +89,10 @@ public class LevelManager : MonoBehaviour
 
         _currentLevel++;
         if (_currentLevel > LevelsInOrder.Count)
+        {
             _currentLevel = 0;
+        }
+
         LoadCurrentLevel();
     }
 }
