@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public List<SceneReference> LevelsInOrder;
 
     public GameObject LevelCompleteScreenPanel;
+    public GameObject PausePanel;
 
     [ShowNonSerializedField] private int _currentLevel;
 
@@ -19,6 +20,7 @@ public class LevelManager : MonoBehaviour
     [UsedImplicitly]
     public void RetryLevel()
     {
+        PausePanel.SetActive(false);
         LevelCompleteScreenPanel.SetActive(false);
         var unload = UnloadCurrentLevel();
         unload.completed += op => LoadCurrentLevel();
@@ -27,6 +29,7 @@ public class LevelManager : MonoBehaviour
     [UsedImplicitly]
     public void LoadNextLevel()
     {
+        PausePanel.SetActive(false);
         LevelCompleteScreenPanel.SetActive(false);
         var unload = UnloadCurrentLevel();
         unload.completed += LoadNextLevel;
@@ -34,6 +37,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        PausePanel.SetActive(false);
         LevelCompleteScreenPanel.SetActive(false);
 
         _singleSceneMode = SceneManager.sceneCount > 1;
@@ -46,6 +50,30 @@ public class LevelManager : MonoBehaviour
         {
             LoadOperationOnCompleted(null);
         }
+    }
+
+    private bool _paused;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Pause"))
+        {
+            TogglePause();
+        }
+    }
+
+    public void TogglePause()
+    {
+        _paused = !_paused;
+
+        Time.timeScale = _paused ? 0f : 1f;
+
+        PausePanel.SetActive(_paused);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     private void LoadCurrentLevel()
