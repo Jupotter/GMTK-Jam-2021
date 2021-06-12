@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public List<SceneAsset> LevelsInOrder;
+    public List<SceneReference> LevelsInOrder;
 
     [ShowNonSerializedField] private bool _singleSceneMode;
     [ShowNonSerializedField] private int  _currentLevel;
@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
     private void LoadCurrentLevel()
     {
         var level         = LevelsInOrder[_currentLevel];
-        var loadOperation = SceneManager.LoadSceneAsync(level.name, LoadSceneMode.Additive);
+        var loadOperation = SceneManager.LoadSceneAsync(level.ScenePath, LoadSceneMode.Additive);
 
         loadOperation.allowSceneActivation = true;
 
@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
     private void GoalOnOnGoalReached(object sender, EventArgs e)
     {
         var level  = LevelsInOrder[_currentLevel];
-        var unload = SceneManager.UnloadSceneAsync(level.name);
+        var unload = SceneManager.UnloadSceneAsync(level.ScenePath);
         unload.completed += UnloadOnCompleted;
     }
 

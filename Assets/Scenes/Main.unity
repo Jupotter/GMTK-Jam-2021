@@ -201,8 +201,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelsInOrder:
-  - {fileID: 102900000, guid: 03c620dee69135a4b87e785bd06f9d6f, type: 3}
-  - {fileID: 102900000, guid: 7aa9b70040f5d1b47a555cdcf6776598, type: 3}
+  - sceneAsset: {fileID: 102900000, guid: 03c620dee69135a4b87e785bd06f9d6f, type: 3}
+    scenePath: Assets/Scenes/Level 0.unity
+  - sceneAsset: {fileID: 102900000, guid: 7aa9b70040f5d1b47a555cdcf6776598, type: 3}
+    scenePath: Assets/Scenes/Level 1.unity
 --- !u!4 &1565075460
 Transform:
   m_ObjectHideFlags: 0
@@ -272,7 +274,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -296,7 +298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935935878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.3084998, z: -11}
+  m_LocalPosition: {x: 0, y: -1.3084998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
