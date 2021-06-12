@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="Box-thin.svg"
+   inkscape:export-filename="D:\Code\GMTK-Jam-2021\Assets\Sprites\box-thin.png"
+   inkscape:export-xdpi="1566.267"
+   inkscape:export-ydpi="1566.267"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#171aff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="false"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showborder="false"
+     inkscape:zoom="27.427916"
+     inkscape:cx="118.32835"
+     inkscape:cy="170.13688"
+     inkscape:window-width="2498"
+     inkscape:window-height="1417"
+     inkscape:window-x="1974"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="46.580552,50.509987"
+       end_point="46.578176,42.690006"
+       center_point="46.579364,46.599997"
+       id="path-effect16945"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="46.580552,50.509987"
+       end_point="46.578176,42.690006"
+       center_point="46.579364,46.599997"
+       id="path-effect16664"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="46.580552,50.509987"
+       end_point="46.578176,42.690006"
+       center_point="46.579364,46.599997"
+       id="path-effect16634"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="46.587627,42.681487"
+       end_point="46.588478,51.20822"
+       center_point="46.588053,46.944853"
+       id="path-effect14445"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="46.580552,50.509987"
+       end_point="46.578176,42.690006"
+       center_point="46.579364,46.599997"
+       id="path-effect12345"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="46.587627,42.681487"
+       end_point="46.588478,51.20822"
+       center_point="46.588053,46.944853"
+       id="path-effect3744"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath14739">
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 46.588409,50.509987 h -1.435784 v -4.199422 h -1.2111 l 2.646102,-3.636053 2.646827,3.635525 -1.2111,2.41e-4 8.39e-4,4.199422 z"
+         id="path14741"
+         sodipodi:nodetypes="ccccc"
+         transform="translate(0.02024328)"
+         inkscape:label="BigArrow"
+         inkscape:original-d="m 46.58892,50.509987 h -1.436295 v -4.199422 h -1.2111 l 2.647395,-3.63783"
+         inkscape:path-effect="#path-effect3744" />
+    </clipPath>
+  </defs>
+  <rect
+     style="fill:#020013;stroke:#00ffff;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:round;fill-opacity:1"
+     id="rect1217"
+     width="4.0515289"
+     height="4.0515289"
+     x="30.830206"
+     y="40.862564"
+     ry="0.01929277" />
+</svg>

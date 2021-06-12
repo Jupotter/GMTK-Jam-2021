@@ -1,0 +1,4 @@
+Unity Scene Reference: johannesmp (https://github.com/JohannesMP/unity-scene-reference)
+Naughty Attributes: dbrizov (https://github.com/dbrizov/NaughtyAttributes)
+Neoneon: Bakoom Studio (https://www.fontspace.com/neoneon-font-f44430)
+Beon Font: Bastien Sozoo (https://www.fontspace.com/beon-font-f17325)
