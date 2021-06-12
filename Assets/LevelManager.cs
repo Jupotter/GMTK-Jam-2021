@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
     public GameObject LevelCompleteScreenPanel;
     public GameObject PausePanel;
 
+    public bool AllowPause { get; set; }
+
     [ShowNonSerializedField] private int _currentLevel;
 
     [ShowNonSerializedField] private bool _singleSceneMode;
@@ -90,7 +92,8 @@ public class LevelManager : MonoBehaviour
     private void LoadOperationOnCompleted(AsyncOperation obj)
     {
         var goal = FindObjectOfType<LevelGoal>();
-        goal.OnGoalReached += GoalOnOnGoalReached;
+        if (goal != null)
+            goal.OnGoalReached += GoalOnOnGoalReached;
     }
 
 
@@ -109,6 +112,7 @@ public class LevelManager : MonoBehaviour
 
     private void LoadNextLevel(AsyncOperation obj)
     {
+        AllowPause = true;
         if (_singleSceneMode)
         {
             LoadCurrentLevel();
