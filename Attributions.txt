@@ -1,6 +1,6 @@
 Unity Scene Reference: johannesmp (https://github.com/JohannesMP/unity-scene-reference)
 Naughty Attributes: dbrizov (https://github.com/dbrizov/NaughtyAttributes)
-Neoneon: Bakoom Studio (https://www.fontspace.com/neoneon-font-f44430)
+Neoneon Font: Bakoom Studio (https://www.fontspace.com/neoneon-font-f44430)
 Beon Font: Bastien Sozoo (https://www.fontspace.com/beon-font-f17325)
 Music: Elsewhere by Jim Hall (https://www.freemusicarchive.org/music/jim-hall/synth-kid-elsewhere/elsewhere)
     Risers by Chad Crouch (https://www.freemusicarchive.org/music/Chad_Crouch/arps-ii/risers)
