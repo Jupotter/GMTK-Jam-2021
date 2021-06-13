@@ -16,7 +16,6 @@ public class BallSound : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         var magnitude = other.relativeVelocity.magnitude;
-        Debug.Log(magnitude);
         if (magnitude > 3)
             _audioSource.Play();
     }

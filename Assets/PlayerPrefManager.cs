@@ -6,12 +6,15 @@ using UnityEngine.Rendering.PostProcessing;
 public class PlayerPrefManager : MonoBehaviour
 {
     public const string MusicVolumePref    = "MusicVolume";
+    public const string SfxVolumePref      = "SfxVolume";
     public const string BloomIntensityPref = "BloomIntensity";
 
-    public  PostProcessProfile PostProcess;
-    public  AudioMixer         AudioMixer;
-    private float              bloomValue;
-    private float              musicVolumeValue;
+    public PostProcessProfile PostProcess;
+    public AudioMixer         AudioMixer;
+
+    private float bloomValue;
+    private float musicVolume;
+    private float sfxVolume;
 
     [ShowNativeProperty]
     public float BloomValue
@@ -25,13 +28,24 @@ public class PlayerPrefManager : MonoBehaviour
     }
 
     [ShowNativeProperty]
-    public float MusicVolumeValue
+    public float MusicVolume
     {
-        get => musicVolumeValue;
+        get => musicVolume;
         set
         {
-            musicVolumeValue = value;
+            musicVolume = value;
             AudioMixer.SetFloat(MusicVolumePref, Mathf.Log10(value) * 20);
+        }
+    }
+
+    [ShowNativeProperty]
+    public float SfxVolume
+    {
+        get => sfxVolume;
+        set
+        {
+            sfxVolume = value;
+            AudioMixer.SetFloat(SfxVolumePref, Mathf.Log10(value) * 20);
         }
     }
 
@@ -42,13 +56,15 @@ public class PlayerPrefManager : MonoBehaviour
 
     public void LoadSettings()
     {
-        BloomValue       = PlayerPrefs.GetFloat(BloomIntensityPref, 6);
-        MusicVolumeValue = PlayerPrefs.GetFloat(MusicVolumePref, 0.8f);
+        BloomValue  = PlayerPrefs.GetFloat(BloomIntensityPref, 6);
+        MusicVolume = PlayerPrefs.GetFloat(MusicVolumePref, 0.8f);
+        SfxVolume   = PlayerPrefs.GetFloat(SfxVolumePref, 0.8f);
     }
 
     public void SaveSettings()
     {
-        PlayerPrefs.SetFloat(MusicVolumePref, MusicVolumeValue);
+        PlayerPrefs.SetFloat(MusicVolumePref, MusicVolume);
+        PlayerPrefs.SetFloat(SfxVolumePref, SfxVolume);
         PlayerPrefs.SetFloat(BloomIntensityPref, BloomValue);
     }
 }

@@ -9,10 +9,8 @@ public class SettingsManager : MonoBehaviour
     public MainMenuManager MainMenu;
 
     public Slider MusicVolumeSlider;
+    public Slider SfxVolumeSlider;
     public Slider BloomSlider;
-
-    public PostProcessProfile PostProcess;
-    public AudioMixer         AudioMixer;
 
     private PlayerPrefManager _playerPrefManager;
 
@@ -26,14 +24,21 @@ public class SettingsManager : MonoBehaviour
 
     private void ResetSliders()
     {
-        MusicVolumeSlider.value = _playerPrefManager.MusicVolumeValue;
+        MusicVolumeSlider.value = _playerPrefManager.MusicVolume;
+        SfxVolumeSlider.value   = _playerPrefManager.SfxVolume;
         BloomSlider.value       = _playerPrefManager.BloomValue;
     }
 
     [UsedImplicitly]
     public void OnMusicVolumeUpdated(float sliderValue)
     {
-        _playerPrefManager.MusicVolumeValue = sliderValue;
+        _playerPrefManager.MusicVolume = sliderValue;
+    }
+
+    [UsedImplicitly]
+    public void OnSfxVolumeUpdated(float sliderValue)
+    {
+        _playerPrefManager.SfxVolume = sliderValue;
     }
 
     [UsedImplicitly]
