@@ -773,7 +773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129144626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -11}
+  m_LocalPosition: {x: 0, y: -1.3084998, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3750,7 +3750,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 434898965}
   m_HandleRect: {fileID: 1790362052}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.8
@@ -5017,6 +5017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SettingsMenu: {fileID: 898053850}
   CreditsMenu: {fileID: 1664256685}
+  ExitButton: {fileID: 1051030909}
 --- !u!114 &1750249052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5178,7 +5179,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 604187153}
   m_HandleRect: {fileID: 1347076013}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.8

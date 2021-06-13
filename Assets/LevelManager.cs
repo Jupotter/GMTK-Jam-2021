@@ -70,24 +70,18 @@ public class LevelManager : MonoBehaviour
         PausePanel.SetActive(false);
         LevelCompleteScreenPanel.SetActive(false);
 
-        _singleSceneMode = SceneManager.sceneCount > 1;
-
-        if (!_singleSceneMode)
-        {
-            LoadMainMenu();
-        }
-        else
-        {
-            _currentLevel = SceneManager.GetSceneAt(1).buildIndex - 1;
-            LoadOperationOnCompleted(null);
-        }
+        LoadMainMenu();
     }
 
     public void LoadMainMenu()
     {
+        _currentLevel = 0;
         LevelTimeDisplay.SetActive(false);
         if (SceneManager.sceneCount > 1)
+        {
             SceneManager.LoadScene("Level Manager", LoadSceneMode.Single);
+            return;
+        }
 
         SceneManager.LoadScene(MainMenu.ScenePath, LoadSceneMode.Additive);
     }

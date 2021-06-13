@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 using UnityEngine;
-
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -8,13 +8,18 @@ using UnityEditor;
 public class MainMenuManager : MonoBehaviour
 {
     public SettingsManager SettingsMenu;
-    public GameObject CreditsMenu;
+    public GameObject      CreditsMenu;
+    public GameObject      ExitButton;
 
     private LevelManager _levelManager;
 
     // Start is called before the first frame update
     void Start()
     {
+#if UNITY_WEBGL
+        ExitButton.SetActive(false);
+#endif
+
         _levelManager = FindObjectOfType<LevelManager>();
 
         _levelManager.AllowPause = false;
