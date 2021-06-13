@@ -78,7 +78,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            _currentLevel = SceneManager.GetSceneAt(1).buildIndex;
+            _currentLevel = SceneManager.GetSceneAt(1).buildIndex - 1;
             LoadOperationOnCompleted(null);
         }
     }
