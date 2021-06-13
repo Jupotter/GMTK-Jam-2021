@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
@@ -17,6 +18,14 @@ public class LevelManager : MonoBehaviour
 
     public GameObject LevelCompleteScreenPanel;
     public GameObject PausePanel;
+    public GameObject CompleteGamePanel;
+
+    public GameObject LevelTimeDisplay;
+
+    public TimeSpan TotalTime { get; private set; }
+    public TimeSpan LevelTime => _stopwatch.Elapsed;
+
+    private readonly Stopwatch _stopwatch = new Stopwatch();
 
     public bool AllowPause { get; set; }
 
@@ -37,6 +46,7 @@ public class LevelManager : MonoBehaviour
     [UsedImplicitly]
     public void LoadNextLevel()
     {
+        TotalTime += LevelTime;
         PausePanel.SetActive(false);
         LevelCompleteScreenPanel.SetActive(false);
 
@@ -56,6 +66,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        CompleteGamePanel.SetActive(false);
         PausePanel.SetActive(false);
         LevelCompleteScreenPanel.SetActive(false);
 
@@ -74,6 +85,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        LevelTimeDisplay.SetActive(false);
         if (SceneManager.sceneCount > 1)
             SceneManager.LoadScene("Level Manager", LoadSceneMode.Single);
 
@@ -84,7 +96,7 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && AllowPause)
         {
             TogglePause();
         }
@@ -96,6 +108,10 @@ public class LevelManager : MonoBehaviour
 
         Time.timeScale = _paused ? 0f : 1f;
 
+        if (_paused)
+            _stopwatch.Stop();
+        else
+            _stopwatch.Start();
         PausePanel.SetActive(_paused);
     }
 
@@ -112,6 +128,8 @@ public class LevelManager : MonoBehaviour
 
     private void LoadCurrentLevel()
     {
+        AllowPause = true;
+        LevelTimeDisplay.SetActive(true);
         Time.timeScale = 1;
         var level         = LevelsInOrder[_currentLevel];
         var loadOperation = SceneManager.LoadSceneAsync(level.ScenePath, LoadSceneMode.Additive);
@@ -123,6 +141,7 @@ public class LevelManager : MonoBehaviour
 
     private void LoadOperationOnCompleted(AsyncOperation obj)
     {
+        _stopwatch.Restart();
         var goal = FindObjectOfType<LevelGoal>();
         if (goal != null)
             goal.OnGoalReached += GoalOnOnGoalReached;
@@ -131,6 +150,8 @@ public class LevelManager : MonoBehaviour
 
     private void GoalOnOnGoalReached(object sender, EventArgs e)
     {
+        AllowPause = false;
+        _stopwatch.Stop();
         Time.timeScale = 0;
         LevelCompleteScreenPanel.SetActive(true);
     }
@@ -154,9 +175,16 @@ public class LevelManager : MonoBehaviour
         _currentLevel++;
         if (_currentLevel >= LevelsInOrder.Count)
         {
-            _currentLevel = 0;
+            LoadEndScreen();
+            return;
         }
 
         LoadCurrentLevel();
+    }
+
+    private void LoadEndScreen()
+    {
+        LevelTimeDisplay.SetActive(false);
+        CompleteGamePanel.SetActive(true);
     }
 }
