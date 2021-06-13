@@ -11,7 +11,6 @@ Joined Together
 Control a pair of balls, linked together by a chain, trying to travers each level.
 The catch? Each ball has its own gravity.
 
-
 ## Controls
 
 Control the active ball with the arrow keys or WASD.
