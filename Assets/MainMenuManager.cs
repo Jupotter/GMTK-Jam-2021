@@ -8,6 +8,7 @@ using UnityEditor;
 public class MainMenuManager : MonoBehaviour
 {
     public SettingsManager SettingsMenu;
+    public GameObject CreditsMenu;
 
     private LevelManager _levelManager;
 
@@ -32,6 +33,20 @@ public class MainMenuManager : MonoBehaviour
     {
         SettingsMenu.gameObject.SetActive(true);
         this.gameObject.SetActive(false);
+    }
+
+    [UsedImplicitly]
+    public void OpenCreditsMenu()
+    {
+        CreditsMenu.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
+
+    [UsedImplicitly]
+    public void CloseCreditsMenu()
+    {
+        CreditsMenu.SetActive(false);
+        this.gameObject.SetActive(true);
     }
 
     [UsedImplicitly]
