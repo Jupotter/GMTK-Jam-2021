@@ -5,6 +5,10 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class LevelManager : MonoBehaviour
 {
     public List<SceneReference> LevelsInOrder;
@@ -75,7 +79,11 @@ public class LevelManager : MonoBehaviour
 
     public void ExitGame()
     {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 
     private void LoadCurrentLevel()

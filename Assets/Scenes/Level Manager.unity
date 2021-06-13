@@ -1763,6 +1763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1565075460}
   - component: {fileID: 1565075459}
+  - component: {fileID: 1565075461}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1811,6 +1812,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1565075461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565075458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac75507018781fc41a5b222d8e287e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PostProcess: {fileID: 11400000, guid: 5795c8c71083ab84197dbfce733bdff1, type: 2}
+  AudioMixer: {fileID: 24100000, guid: cf7850eedcaf1554db47320b58be661a, type: 2}
 --- !u!1 &1665565329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,7 +2009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2438,8 +2453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Musics:
-  - {fileID: 8300000, guid: 1a21939726be75e41b0332079bb7689a, type: 3}
   - {fileID: 8300000, guid: 9f400642b8b8c4d468983c2e3bc13f93, type: 3}
+  - {fileID: 8300000, guid: 1a21939726be75e41b0332079bb7689a, type: 3}
 --- !u!82 &1935935885
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2449,7 +2464,8 @@ AudioSource:
   m_GameObject: {fileID: 1935935878}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1281888364032226963, guid: cf7850eedcaf1554db47320b58be661a,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
