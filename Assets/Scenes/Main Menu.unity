@@ -1927,6 +1927,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chain link Down
       objectReference: {fileID: 0}
+    - target: {fileID: 247529224586085750, guid: 7a87e3a49ddbe6648b2eba4df16ec129,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -5.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 247529224586085750, guid: 7a87e3a49ddbe6648b2eba4df16ec129,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -2.552
+      objectReference: {fileID: 0}
     - target: {fileID: 247529224782763885, guid: 7a87e3a49ddbe6648b2eba4df16ec129,
         type: 3}
       propertyPath: m_Name

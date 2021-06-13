@@ -23,15 +23,19 @@ public class BallController : MonoBehaviour
     [ShowNonSerializedField] private Vector2 _force   = Vector2.zero;
     [ShowNonSerializedField] private float   _gravity = 1;
 
+    private AudioSource _audioSource;
+    public  AudioClip   SwapSound;
+
     // Start is called before the first frame update
     private void Start()
     {
         Assert.IsNotNull(Ball1);
         Assert.IsNotNull(Ball2);
 
-        _chain      = GetComponentInChildren<ChainController>();
-        _controlled = Ball2;
-        _fixed      = Ball1;
+        _audioSource = GetComponent<AudioSource>();
+        _chain       = GetComponentInChildren<ChainController>();
+        _controlled  = Ball2;
+        _fixed       = Ball1;
 
         if (InitialUp)
         {
@@ -44,6 +48,9 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Time.timeScale < 1)
+            return;
+
         var horizontal = Input.GetAxis("Horizontal");
         var vertical   = Input.GetAxis("Vertical");
         var normal     = _controlled.position - _fixed.position;
@@ -59,7 +66,7 @@ public class BallController : MonoBehaviour
 
         Debug.DrawRay(_controlled.position, _force.normalized, Color.red);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Swap"))
         {
             _gravity *= -1;
 
@@ -87,5 +94,7 @@ public class BallController : MonoBehaviour
         _controlled.GetComponent<Animator>().SetBool(Active, true);
 
         _chain.SetGravity(_gravity);
+
+        _audioSource.PlayOneShot(SwapSound);
     }
 }

@@ -1139,7 +1139,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.2747525, y: 1}
+    m_SensorSize: {x: 1.7795918, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1280,31 +1280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 247529223860140531, guid: 7a87e3a49ddbe6648b2eba4df16ec129,
-        type: 3}
-      propertyPath: m_Name
-      value: Circle Down
-      objectReference: {fileID: 0}
-    - target: {fileID: 247529224586085744, guid: 7a87e3a49ddbe6648b2eba4df16ec129,
-        type: 3}
-      propertyPath: m_Name
-      value: Chain link Down
-      objectReference: {fileID: 0}
-    - target: {fileID: 247529224782763885, guid: 7a87e3a49ddbe6648b2eba4df16ec129,
-        type: 3}
-      propertyPath: m_Name
-      value: Circle Up
-      objectReference: {fileID: 0}
-    - target: {fileID: 247529225079815174, guid: 7a87e3a49ddbe6648b2eba4df16ec129,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 247529225275035423, guid: 7a87e3a49ddbe6648b2eba4df16ec129,
-        type: 3}
-      propertyPath: m_Name
-      value: Chain link Up
-      objectReference: {fileID: 0}
     - target: {fileID: 247529225734308251, guid: 7a87e3a49ddbe6648b2eba4df16ec129,
         type: 3}
       propertyPath: m_RootOrder
