@@ -4,13 +4,15 @@ using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 #if UNITY_EDITOR
 using UnityEditor;
+
 #endif
 
 public class LevelManager : MonoBehaviour
 {
+    public SceneReference MainMenu;
+
     public List<SceneReference> LevelsInOrder;
 
     public GameObject LevelCompleteScreenPanel;
@@ -37,8 +39,19 @@ public class LevelManager : MonoBehaviour
     {
         PausePanel.SetActive(false);
         LevelCompleteScreenPanel.SetActive(false);
-        var unload = UnloadCurrentLevel();
-        unload.completed += LoadNextLevel;
+
+        var            level = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
+        AsyncOperation unload;
+        if (level.path == MainMenu.ScenePath)
+        {
+            unload           =  SceneManager.UnloadSceneAsync(MainMenu.ScenePath);
+            unload.completed += LoadCurrentLevel;
+        }
+        else
+        {
+            unload           =  UnloadCurrentLevel();
+            unload.completed += LoadNextLevel;
+        }
     }
 
     private void Start()
@@ -50,12 +63,21 @@ public class LevelManager : MonoBehaviour
 
         if (!_singleSceneMode)
         {
-            LoadCurrentLevel();
+            LoadMainMenu();
         }
         else
         {
+            _currentLevel = SceneManager.GetSceneAt(1).buildIndex;
             LoadOperationOnCompleted(null);
         }
+    }
+
+    public void LoadMainMenu()
+    {
+        if (SceneManager.sceneCount > 1)
+            SceneManager.LoadScene("Level Manager", LoadSceneMode.Single);
+
+        SceneManager.LoadScene(MainMenu.ScenePath, LoadSceneMode.Additive);
     }
 
     private bool _paused;
@@ -85,6 +107,8 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+    private void LoadCurrentLevel(AsyncOperation obj) => LoadCurrentLevel();
 
     private void LoadCurrentLevel()
     {
@@ -128,7 +152,7 @@ public class LevelManager : MonoBehaviour
         }
 
         _currentLevel++;
-        if (_currentLevel > LevelsInOrder.Count)
+        if (_currentLevel >= LevelsInOrder.Count)
         {
             _currentLevel = 0;
         }
